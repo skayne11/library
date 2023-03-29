@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+<h1>Films</h1>
+<div class="row">
+{% for film in films %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static film.image %}" width="450" height="250">
+            <div class="card-body">
+                <h5 class="card-title">{{ film.title }}</h5>
+                <p class="card-text">{{ film.description }}</p>
+                {% if film.title == "Livres" %}
+                    <a href="#" class="btn btn-primary">Read More</a>
+                {% else %}
+                    <a href="#" class="btn btn-primary">Read More</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
