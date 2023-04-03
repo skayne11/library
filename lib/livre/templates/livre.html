@@ -2,11 +2,20 @@
 {% load static %}
 {% block page_content %}
 <h1>Livres</h1>
+
 <div class="row">
-{% for livre in livres %}
+    <label class="form-control-file">Rechercher un livre : </label>
+
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    {% for value in 'teste' %}
+    <label class="form-control-file"> </label>
+    {% endfor %}
+
+
+    {% for livre in livres %}
     <div class="col-md-4">
         <div class="card mb-2" style="background-color : #343A40">
-            <img class="card-img-top" src="{% static livre.image %}" width="450" height="250">
+            <img class="card-img-top" src="{% static livre.image %}" width="450" height="350">
             <div class="card-body">
                 <h5 class="card-title" style="color : white">{{ livre.titre }}</h5>
                 <a href="{% url 'livre_detail' livre.pk %}"
@@ -17,6 +26,17 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+
+    </script>
     {% endfor %}
 </div>
 {% endblock %}
