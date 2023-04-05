@@ -1,23 +1,22 @@
 {% extends "base.html" %}
-{% load static %}
 {% block page_content %}
 <h1>Livres</h1>
 
 <div class="row">
-    <label class="form-control-file">Rechercher un livre : </label>
-
-    <input class="form-control" id="myInput" type="text" placeholder="Search..">
+    <form class="d-flex">
+        <input name="recherche" id="id_q" type="search" class="form-control" placeholder="search titre"/>
+        <button class="btn btn-orange" type="submit">search</button>
+    </form>
     {% for value in 'teste' %}
     <label class="form-control-file"> </label>
     {% endfor %}
 
-
     {% for livre in livres %}
     <div class="col-md-4">
-        <div class="card mb-2" style="background-color : #343A40">
-            <img class="card-img-top" src="{% static livre.image %}" width="450" height="350">
-            <div class="card-body">
-                <h5 class="card-title" style="color : white">{{ livre.titre }}</h5>
+        <div class="card border-primary mb-2" style="background-color : #343A40; max-width: 20rem">
+            <img class="card-img-top" src="{{ livre.image }}" width="450" height="350">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center" style="color : white">{{ livre.titre }}</h5>
                 <a href="{% url 'livre_detail' livre.pk %}"
                    class="btn btn-primary">
                     Read More
@@ -26,17 +25,6 @@
             </div>
         </div>
     </div>
-    <script>
-        $(document).ready(function(){
-          $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-          });
-        });
-
-    </script>
     {% endfor %}
 </div>
 {% endblock %}
