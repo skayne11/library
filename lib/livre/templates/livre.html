@@ -3,10 +3,8 @@
 <h1>Livres</h1>
 
 <div class="row">
-    <form class="d-flex">
-        <input name="recherche" id="id_q" type="search" class="form-control" placeholder="search titre"/>
-        <button class="btn btn-orange" type="submit">search</button>
-    </form>
+    <label class="form-control-file">Rechercher un livre : </label>
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
     {% for value in 'teste' %}
     <label class="form-control-file"> </label>
     {% endfor %}
