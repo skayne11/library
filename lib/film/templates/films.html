@@ -1,20 +1,27 @@
 {% extends "base.html" %}
-{% load static %}
 {% block page_content %}
 <h1>Films</h1>
+
 <div class="row">
-{% for film in films %}
+    <form class="d-flex">
+        <input name="recherche" id="id_q" type="search" class="form-control" placeholder="chercher titre"/>
+        <button class="btn btn-orange" type="submit">je cherche !</button>
+    </form>
+    {% for value in 'teste' %}
+    <label class="form-control-file"> </label>
+    {% endfor %}
+
+    {% for film in films %}
     <div class="col-md-4">
-        <div class="card mb-2">
-            <img class="card-img-top" src="{{ film.image }}" width="450" height="250">
-            <div class="card-body">
-                <h5 class="card-title">{{ film.titre }}</h5>
-                <p class="card-text">{{ film.description }}</p>
-                {% if film.title == "Livres" %}
-                    <a href="#" class="btn btn-primary">Read More</a>
-                {% else %}
-                    <a href="#" class="btn btn-primary">Read More</a>
-                {% endif %}
+        <div class="card border-primary mb-2" style="background-color : #343A40; max-width: 20rem">
+            <img class="card-img-top" src="{{ film.image }}" width="450" height="350">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center" style="color : white">{{ film.titre }}</h5>
+                <a href="{% url 'film_detail' film.pk %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+
             </div>
         </div>
     </div>

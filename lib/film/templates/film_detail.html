@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block page_content %}
+<h1>{{ films.titre }}</h1>
+<div class="row">
+    <div class="col-md-8">
+        <img src="{{ films.image }}" alt="" width="500" height="600">
+    </div>
+    <div class="col-md-4">
+        <h5>Concernant le film :</h5>
+        <p>{{ films.description }}</p>
+        <br>
+        <h5>L'auteur :</h5>
+        <p>{{ films.auteur }}</p>
+    </div>
+</div>
+
+{% endblock %}
