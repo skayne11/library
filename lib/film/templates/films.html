@@ -1,12 +1,9 @@
 {% extends "base.html" %}
 {% block page_content %}
 <h1>Films</h1>
-
 <div class="row">
-    <form class="d-flex">
-        <input name="recherche" id="id_q" type="search" class="form-control" placeholder="chercher titre"/>
-        <button class="btn btn-orange" type="submit">je cherche !</button>
-    </form>
+    <label class="form-control-file">Rechercher un film : </label>
+    <input class="form-control" id="myInput" type="text" placeholder="Search..">
     {% for value in 'teste' %}
     <label class="form-control-file"> </label>
     {% endfor %}

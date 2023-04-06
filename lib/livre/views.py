@@ -9,7 +9,6 @@ def livre_index(request):
             livres = Livre.objects.filter(titre__icontains=titre)
     return render(request, 'livre.html', {'livres': livres})
 
-
 def livre_detail(request, pk):
     livre_det = Livre.objects.get(pk=pk)
     context = {

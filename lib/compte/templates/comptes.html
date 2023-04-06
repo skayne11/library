@@ -56,7 +56,140 @@
                     <button type="submit" class="btn btn-primary">Sign in</button>
                 </form>
             </div>
+            <div class="mb-3 text-center">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary col-lg-12 btn btn-default center-block">Submit</button>
+        </form>
+
+        <!-- formulaire d'inscription
+    <h1>Comptes</h1>
+    <br>
+    <br>
+    {% if connexion == False %}
+        <div class="align-self-center">
+            <h3>Connexion</h3>
+            <br>
+            <form class="col-md-3 align-self-center">
+                <div class="col5 text-center">
+                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3 text-center">
+                    <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1">
+                </div>
+                <button type="submit" class="btn btn-primary col-lg-12 btn btn-default center-block">connexion</button>
+                <br>
+                <br>
+            </form>
+            <form>
+                <div class="form-group">
+                    <div class="row row justify-content-between">
+                        <h3>Inscription</h3>
+                        <div class="col-6 ">
+                            <br> <br>
+                        </div>
+
+                        <div class="col-6">
+                            <label for="prenom">Prénom</label>
+                            <input id="prenom" class="form-control" type="text" name=""
+                                   placeholder="Entrer votre prénom">
+                        </div>
+                        <div class="col-6">
+                            <label for="nom">Nom</label>
+                            <input id="nom" class="form-control" type="text" name=""
+                                   placeholder="Entrer votre nom">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="mail">Mail</label>
+                            <input id="mail" class="form-control" type="text" name="" placeholder="Entrer votre mail">
+                        </div>
+                        <div class="col-6">
+                            <label for="numéro">Numéro</label>
+                            <input id="numéro" class="form-control" type="text" name=""
+                                   placeholder="Entrer votre numéro">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-12">
+                            <label for="adresse">Adresse</label>
+                            <input id="adresse" class="form-control" type="text" name=""
+                                   placeholder="Entrer votre adresse">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Sexe</label>
+                    <div class="form-row">
+                        <div class="custom-control custom-control-inline custom-radio">
+                            <input type="radio" class="custom-control-input" id="radio1" name="radiobouton">
+                            <label class="custom-control-label" for="radio1">Masculin</label>
+                        </div>
+                        <div class="custom-control custom-control-inline custom-radio">
+                            <input type="radio" class="custom-control-input" id="radio2" name="radiobouton">
+                            <label class="custom-control-label" for="radio2">Féminin</label>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary">S'inscrire</button>
+            </form>
         </div>
-    </div>
-</div>
+    {% else %}
+        <div class="container">
+            <h1>Informations du compte</h1>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="nom">Nom :</label>
+                        <input type="text" class="form-control" id="nom" value="Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label for="prenom">Prénom :</label>
+                        <input type="text" class="form-control" id="prenom" value="Jean">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="email" class="form-control" id="email" value="jean.dupont@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="sexe">Sexe :</label>
+                        <select class="form-control" id="sexe">
+                            <option value="homme">Homme</option>
+                            <option value="femme">Femme</option>
+                        </select>
+                    </div>
+                    <p class="text-center">Sauvegarder si une modification a été ajoutée.</p>
+                    <button type="submit" class="btn btn-primary col-lg-12 btn btn-default center-block">sauvegarder
+                    </button>
+                </div>
+                <div class="container">
+                    <br>
+                    <h2>Livre lu</h2>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Image</th>
+                            <th>Titre</th>
+                            <th>Auteur</th>
+                            <th>Description</th>
+                        </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+-->
+            <!-- Chargement des scripts de Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    {% endif %}
 {% endblock %}
