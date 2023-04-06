@@ -1,15 +1,27 @@
 {% extends "base.html" %}
-{% load static %}
 {% block page_content %}
 <h1>Livres</h1>
+
 <div class="row">
-{% for livre in livres %}
+    <form class="d-flex">
+        <input name="recherche" id="id_q" type="search" class="form-control" placeholder="search titre"/>
+        <button class="btn btn-orange" type="submit">search</button>
+    </form>
+    {% for value in 'teste' %}
+    <label class="form-control-file"> </label>
+    {% endfor %}
+
+    {% for livre in livres %}
     <div class="col-md-4">
-        <div class="card mb-2">
-            <img class="card-img-top" src="{% static livres.image %}" width="450" height="250">
-            <div class="card-body">
-                <h5 class="card-title">{{ livres.title }}</h5>
-                <a href="#" class="btn btn-primary">Read More</a>
+        <div class="card border-primary mb-2" style="background-color : #343A40; max-width: 20rem">
+            <img class="card-img-top" src="{{ livre.image }}" width="450" height="350">
+            <div class="card-body text-center">
+                <h5 class="card-title text-center" style="color : white">{{ livre.titre }}</h5>
+                <a href="{% url 'livre_detail' livre.pk %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+
             </div>
         </div>
     </div>

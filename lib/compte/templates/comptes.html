@@ -2,22 +2,61 @@
 {% load static %}
 {% block page_content %}
 <h1>Comptes</h1>
-<div class="row">
-{% for film in films %}
-    <div class="col-md-4">
+<div class="row d-flex justify-content-center">
+    <div class="mb-3 text-center">
         <div class="card mb-2">
-            <img class="card-img-top" src="{% static film.image %}" width="450" height="250">
-            <div class="card-body">
-                <h5 class="card-title">{{ film.title }}</h5>
-                <p class="card-text">{{ film.description }}</p>
-                {% if film.title == "Livres" %}
-                    <a href="#" class="btn btn-primary">Read More</a>
-                {% else %}
-                    <a href="#" class="btn btn-primary">Read More</a>
-                {% endif %}
+            <div class="card-body bg-dark" style="color: white">
+                <form>
+                    <label style="font-size : 25px">Register</label>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="inlineFormInputGroup">Username</label>
+                            <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Username">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="inputPassword4">Password</label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail4">Email</label>
+                        <input type="text" class="form-control" id="inputEmail4" placeholder="Email">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="sexe">Sexe :</label>
+                            <select class="form-control" id="sexe">
+                                <option value="homme">Homme</option>
+                                <option value="femme">Femme</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4 ml-auto">
+                            <label for="inputState">Interet :</label>
+                            <select id="inputState" class="form-control">
+                                <option selected>Livres</option>
+                                <option>Films</option>
+                                <option>Les deux</option>
+                            </select>
+                        </div>
+                        <label for="exampleFormControlFile1" class="form-control-file">Photo de profil : </label><br>
+                    </div>
+                    <form class="d-flex justify-content-center">
+                        <div class="row ml-5">
+                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                        </div>
+                    </form>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                                Lu et accepté le contrat d'utilisation
+                            </label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sign in</button>
+                </form>
             </div>
         </div>
     </div>
-    {% endfor %}
 </div>
 {% endblock %}

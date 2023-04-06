@@ -1,7 +1,7 @@
 from django.db import models
 
-class Livres(models.Model):
-    title = models.CharField(max_length=100)
-    auteur = models.CharField(max_length=25)
-    description = models.TextField(max_length=500)
-    image = models.FilePathField(path="/img")
+class Livre(models.Model):
+    titre = models.CharField(max_length=100)
+    auteur = models.CharField(max_length=50)
+    description = models.TextField()
+    image = models.TextField()
