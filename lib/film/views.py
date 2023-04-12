@@ -5,10 +5,11 @@ from .models import Films
 
 def films(request):
     film = Films.objects.all()
-    context = {
-        'films': film
-    }
-    return render(request, 'films.html', context)
+    if request.method == "GET":
+        titre = request.GET.get('recherche')
+        if titre is not None:
+            film = Films.objects.filter(titre__icontains=titre)
+    return render(request, 'films.html', {'films': film})
 
 def film_detail(request, pk):
     livre_det = Films.objects.get(pk=pk)

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<h1>Comptes</h1>
+<div class="container">
+    <br>
+    <h2>Livre lu</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Image</th>
+            <th>Titre</th>
+            <th>Auteur</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for read in lu %}
+        <tr>
+            <td><img src="{{ read.image }}" width="250" height="350" alt="Image de {{ read.titre }}"></td>
+            <td style="vertical-align: middle">
+                <span> {{ read.titre }} </span>
+            </td>
+            <td style="vertical-align: middle">{{ read.auteur }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

@@ -12,4 +12,5 @@ class AlloCineSpider(scrapy.Spider):
             yield {
                 'titre': film.css('h2.Text__SCText-sc-kgt5u3-0.gwWwBt a::text').get(),
                 'producteur': film.css('a.Text__SCText-sc-kgt5u3-0.Link__PrimaryLink-sc-1vfcbn2-0.cBBiTW.dPapvk span::text').get(),
+                'description': film.css('p.synopsis span::text')
             }

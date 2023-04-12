@@ -1,16 +1,15 @@
 {% extends "base.html" %}
+{% load static %}
 {% block page_content %}
-<h1>Livres</h1>
-
+<h1>livres</h1>
 <div class="row">
     <form class="d-flex">
-        <input name="recherche" id="id_q" type="search" class="form-control" placeholder="search titre"/>
-        <button class="btn btn-orange" type="submit">search</button>
+        <input name="recherche" id="id_q" type="search" class="form-control" placeholder="chercher titre"/>
+        <button class="btn btn-orange" type="submit">je cherche !</button>
     </form>
     {% for value in 'teste' %}
     <label class="form-control-file"> </label>
     {% endfor %}
-
     {% for livre in livres %}
     <div class="col-md-4">
         <div class="card border-primary mb-2" style="background-color : #343A40; max-width: 20rem">
@@ -21,7 +20,11 @@
                    class="btn btn-primary">
                     Read More
                 </a>
-
+                {% if livre.lu == True %}
+                <img src=" https://drive.google.com/uc?export=view&id=18sDyH4QnUDtohul2CeHvR21Ls7RuL86S " width="20" height="20"><span style="color:white"> Livre lu</span></img>
+                {% else %}
+                <img src=" https://drive.google.com/uc?export=view&id=1-s7NCGlxrdO2rCrxqWjmv_1koNxP_eJD " width="20" height="20"><span style="color:white"> Livre non lu</span></img>
+                {% endif %}
             </div>
         </div>
     </div>

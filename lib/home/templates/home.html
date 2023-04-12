@@ -9,10 +9,12 @@
             <div class="card-body">
                 <h5 class="card-title" style="color : white">{{ home.title }}</h5>
                 <p class="card-text" style="color : white">{{ home.description }}</p>
-                {% if home.title == "Livres" %}
-                    <a href="http://127.0.0.1:8000/livre/" class="btn btn-outline-primary">Read More</a>
+                {% if home.title == "livre" %}
+                    <a href="{% url 'livre' %}" class="btn btn-outline-primary">Read More</a>
+                {% elif home.title == "film" %}
+                    <a href="{% url 'film' %}" class="btn btn-outline-primary">Read More</a>
                 {% else %}
-                    <a href="#" class="btn btn-outline-primary">Read More</a>
+                    <a href="{% url 'livre_lu' %}" class="btn btn-outline-primary">Read More</a>
                 {% endif %}
             </div>
         </div>

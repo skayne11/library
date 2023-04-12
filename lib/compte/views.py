@@ -1,33 +1,20 @@
-from django.shortcuts import render
+from django.contrib.auth.hashers import make_password
+from django.shortcuts import render, redirect
+from .form import CustomUserCreationForm
+from .models import User
 
-from django.shortcuts import render
-from .models import Comptes
-from django.http import HttpResponseRedirect
-from django.shortcuts import render
-from .form import UserForms
+def register(request):
+    print('tutu')
+    register = CustomUserCreationForm()  # Inclure le formulaire dans le contexte de rendu
 
-
-def compte(request):
-    compte = Comptes.objects.all()
-    context = {
-        'comptes': compte
-    }
-    return render(request, 'comptes.html', context)
-
-
-def get_name(request):
-    # if this is a POST request we need to process the form data
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
-        form = UserForms(request.POST)
-        # check whether it's valid:
-        if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # redirect to a new URL:
-            return HttpResponseRedirect('/thanks/')
-
-    # if a GET (or any other method) we'll create a blank form
-    else:
-        form = UserForms()
-
-    return render(request, 'compte.html', {'form': form})
+        if 'register_form' in request.POST:
+            register = CustomUserCreationForm(request.POST)
+            if register.is_valid():
+                user = User()
+                user.username = request.POST['username']
+                user.password = request.POST['password1']
+                user.password = make_password(user.password)
+                user.save()
+                return redirect('home')
+    return render(request, 'comptes.html', {'register': register})
